@@ -115,6 +115,7 @@
     </div>
     <div id="result" style="display: none; text-align: center;">
         <p id="score"></p>
+        <div id="answers"></div>
         <button onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
     <script>
@@ -140,6 +141,15 @@
             document.getElementById("quizContainer").style.display = "none";
             const resultDiv = document.getElementById("result");
             document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+
+            // Display correct answers
+            let answersHtml = "<h2>Respuestas Correctas:</h2><ul>";
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                answersHtml += `<li>${question}: ${correctAnswer}</li>`;
+            }
+            answersHtml += "</ul>";
+            document.getElementById("answers").innerHTML = answersHtml;
+
             resultDiv.style.display = "block";
         }
     </script>
