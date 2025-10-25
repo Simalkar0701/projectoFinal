@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Química</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #234;
+        }
+        div {
+            text-align: left;
+            background: rgb(167, 198, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 0.8em;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="quizContainer">
+        <h1>Prueba de Química</h1>
+        <form id="quizForm">
+            <!-- Pregunta 1 -->
+            <fieldset>
+                <legend>1. ¿Cuál es el símbolo químico del agua?</legend>
+                <label>
+                    <input type="radio" name="q1" value="H2O"> H2O
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="O2"> O2
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="CO2"> CO2
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 2 -->
+            <fieldset>
+                <legend>2. ¿Qué gas es esencial para la respiración humana?</legend>
+                <label>
+                    <input type="radio" name="q2" value="O2"> O2
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="CO2"> CO2
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="N2"> N2
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 3 -->
+            <fieldset>
+                <legend>3. ¿Cuál es el pH de una solución neutra?</legend>
+                <label>
+                    <input type="radio" name="q3" value="7"> 7
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="0"> 0
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="14"> 14
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 4 -->
+            <fieldset>
+                <legend>4. ¿Qué partícula subatómica tiene carga negativa?</legend>
+                <label>
+                    <input type="radio" name="q4" value="Electrón"> Electrón
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="Protón"> Protón
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="Neutrón"> Neutrón
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 5 -->
+            <fieldset>
+                <legend>5. ¿Cuál es el elemento químico con el número atómico 1?</legend>
+                <label>
+                    <input type="radio" name="q5" value="Hidrógeno"> Hidrógeno
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="Helio"> Helio
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="Litio"> Litio
+                </label>
+            </fieldset>
+
+            <button type="button" onclick="checkAnswers()">Enviar Respuestas</button>
+        </form>
+    </div>
+    <div id="result" style="display: none; text-align: center;">
+        <p id="score"></p>
+        <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "H2O",
+                q2: "O2",
+                q3: "7",
+                q4: "Electrón",
+                q5: "Hidrógeno"
+            };
+
+            let score = 0;
+            const form = document.getElementById("quizForm");
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = form[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            // Hide the quiz and show the result
+            document.getElementById("quizContainer").style.display = "none";
+            const resultDiv = document.getElementById("result");
+            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
