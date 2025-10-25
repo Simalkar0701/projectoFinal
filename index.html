@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retropreparate</title>
+    <javascript href="java.js"></javascript>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #234;
+        }
+        div {
+            text-align: center;
+            background: rgb(167, 198, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.2em;
+        }
+        input[type="password"] {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+        }
+        button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+            cursor: pointer;
+        }
+        button.Exam {
+            display: block;
+            width: 300px;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Retropreparate</h1>
+        <label for="inputField">Ingrese el PIN para<br>continuar</label>
+        <br>
+        <input type="password" id="inputField" maxlength="4">
+        <br>
+        <button type="button">Entrar</button>
+    </div>
+    <div id="Examenes">
+        <button type="button" onclick="location.href='Matematicas.html'" class="Exam">Prueba de Matematicas</button>
+        <br>
+        <button type="button" onclick="location.href='Lenguaje.html'" class="Exam">Prueba de Lenguaje</button>
+        <br>
+        <button type="button" onclick="location.href='Fisica.html'" class="Exam">Prueba de Fisica</button>
+        <br>
+        <button type="button" onclick="location.href='Quimica.html'" class="Exam">Prueba de Quimica</button>
+    </div>
+</body>
+<script>
+    const button = document.querySelector("button");
+    const inputField = document.getElementById("inputField");
+    document.getElementById("Examenes").style.display = "none";
+
+    button.addEventListener("click", () => {
+        const pin = inputField.value;
+        if (pin === "1234") {
+            alert("PIN correcto. Acceso concedido.");
+            document.getElementById("Examenes").style.display = "block";
+            document.querySelector("div").style.display = "none";
+        } else {
+            alert("PIN incorrecto. Inténtalo de nuevo.");
+            inputField.value = "";
+        }
+    });
+</script>
+</html>
