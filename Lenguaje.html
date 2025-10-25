@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Lenguaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #234;
+        }
+        div {
+            text-align: left;
+            background: rgb(167, 198, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 0.8em;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="quizContainer">
+        <h1>Prueba de Lenguaje</h1>
+        <form id="quizForm">
+            <!-- Pregunta 1 -->
+            <fieldset>
+                <legend>1. ¿Cuál es un sinónimo de "feliz"?</legend>
+                <label>
+                    <input type="radio" name="q1" value="triste"> Triste
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="contento"> Contento
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="enojado"> Enojado
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 2 -->
+            <fieldset>
+                <legend>2. ¿Cuál es el antónimo de "grande"?</legend>
+                <label>
+                    <input type="radio" name="q2" value="pequeño"> Pequeño
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="alto"> Alto
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="ancho"> Ancho
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 3 -->
+            <fieldset>
+                <legend>3. ¿Cuál de las siguientes es una palabra aguda?</legend>
+                <label>
+                    <input type="radio" name="q3" value="canción"> Canción
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="mesa"> Mesa
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="árbol"> Árbol
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 4 -->
+            <fieldset>
+                <legend>4. ¿Qué tipo de palabra es "rápidamente"?</legend>
+                <label>
+                    <input type="radio" name="q4" value="adjetivo"> Adjetivo
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="adverbio"> Adverbio
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="sustantivo"> Sustantivo
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 5 -->
+            <fieldset>
+                <legend>5. ¿Cuál es el sujeto en la oración "El perro corre rápido"?</legend>
+                <label>
+                    <input type="radio" name="q5" value="El perro"> El perro
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="corre"> Corre
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="rápido"> Rápido
+                </label>
+            </fieldset>
+
+            <button type="button" onclick="checkAnswers()">Enviar Respuestas</button>
+        </form>
+    </div>
+    <div id="result" style="display: none; text-align: center;">
+        <p id="score"></p>
+        <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "contento",
+                q2: "pequeño",
+                q3: "canción",
+                q4: "adverbio",
+                q5: "El perro"
+            };
+
+            let score = 0;
+            const form = document.getElementById("quizForm");
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = form[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            // Hide the quiz and show the result
+            document.getElementById("quizContainer").style.display = "none";
+            const resultDiv = document.getElementById("result");
+            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
