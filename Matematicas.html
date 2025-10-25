@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Matemáticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #234;
+        }
+        div {
+            text-align: left;
+            background: rgb(167, 198, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 0.8em;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="quizContainer">
+        <h1>Prueba de Matemáticas</h1>
+        <form id="quizForm">
+            <!-- Pregunta 1 -->
+            <fieldset>
+                <legend>1. ¿Cuánto es 5 + 3?</legend>
+                <label>
+                    <input type="radio" name="q1" value="6"> 6
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="8"> 8
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="10"> 10
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 2 -->
+            <fieldset>
+                <legend>2. ¿Cuánto es 7 x 6?</legend>
+                <label>
+                    <input type="radio" name="q2" value="42"> 42
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="36"> 36
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="48"> 48
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 3 -->
+            <fieldset>
+                <legend>3. ¿Cuánto es 12 ÷ 4?</legend>
+                <label>
+                    <input type="radio" name="q3" value="2"> 2
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="3"> 3
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="4"> 4
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 4 -->
+            <fieldset>
+                <legend>4. ¿Cuánto es 9 - 4?</legend>
+                <label>
+                    <input type="radio" name="q4" value="3"> 3
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="5"> 5
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="7"> 7
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 5 -->
+            <fieldset>
+                <legend>5. ¿Cuánto es 15 ÷ 3?</legend>
+                <label>
+                    <input type="radio" name="q5" value="3"> 3
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="5"> 5
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="7"> 7
+                </label>
+            </fieldset>
+
+            <button type="button" onclick="checkAnswers()">Enviar Respuestas</button>
+        </form>
+    </div>
+    <div id="result" style="display: none; text-align: center;">
+        <p id="score"></p>
+        <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "8",
+                q2: "42",
+                q3: "3",
+                q4: "5",
+                q5: "5"
+            };
+
+            let score = 0;
+            const form = document.getElementById("quizForm");
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = form[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            // Hide the quiz and show the result
+            document.getElementById("quizContainer").style.display = "none";
+            const resultDiv = document.getElementById("result");
+            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
