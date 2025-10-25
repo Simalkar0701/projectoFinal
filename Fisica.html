@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Física</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #234;
+        }
+        div {
+            text-align: left;
+            background: rgb(167, 198, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button{
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 0.8em;
+            border-radius: 10px;
+            background-color: rgb(20, 38, 48);
+            color: antiquewhite;
+            border-color: rgb(167, 198, 255);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="quizContainer">
+        <h1>Prueba de Física</h1>
+        <form id="quizForm">
+            <!-- Pregunta 1 -->
+            <fieldset>
+                <legend>1. ¿Cuál es la unidad de fuerza en el Sistema Internacional?</legend>
+                <label>
+                    <input type="radio" name="q1" value="Newton"> Newton
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="Joule"> Joule
+                </label><br>
+                <label>
+                    <input type="radio" name="q1" value="Watt"> Watt
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 2 -->
+            <fieldset>
+                <legend>2. ¿Qué describe la primera ley de Newton?</legend>
+                <label>
+                    <input type="radio" name="q2" value="Inercia"> Inercia
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="Acción y reacción"> Acción y reacción
+                </label><br>
+                <label>
+                    <input type="radio" name="q2" value="Fuerza y aceleración"> Fuerza y aceleración
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 3 -->
+            <fieldset>
+                <legend>3. ¿Cuál es la velocidad de la luz en el vacío?</legend>
+                <label>
+                    <input type="radio" name="q3" value="300000 km/s"> 300,000 km/s
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="150000 km/s"> 150,000 km/s
+                </label><br>
+                <label>
+                    <input type="radio" name="q3" value="100000 km/s"> 100,000 km/s
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 4 -->
+            <fieldset>
+                <legend>4. ¿Qué mide un amperímetro?</legend>
+                <label>
+                    <input type="radio" name="q4" value="Corriente eléctrica"> Corriente eléctrica
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="Voltaje"> Voltaje
+                </label><br>
+                <label>
+                    <input type="radio" name="q4" value="Resistencia"> Resistencia
+                </label>
+            </fieldset>
+
+            <!-- Pregunta 5 -->
+            <fieldset>
+                <legend>5. ¿Qué es la energía cinética?</legend>
+                <label>
+                    <input type="radio" name="q5" value="Energía de movimiento"> Energía de movimiento
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="Energía almacenada"> Energía almacenada
+                </label><br>
+                <label>
+                    <input type="radio" name="q5" value="Energía térmica"> Energía térmica
+                </label>
+            </fieldset>
+
+            <button type="button" onclick="checkAnswers()">Enviar Respuestas</button>
+        </form>
+    </div>
+    <div id="result" style="display: none; text-align: center;">
+        <p id="score"></p>
+        <button onclick="window.location.href='index.html'">Volver al Inicio</button>
+    </div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: "Newton",
+                q2: "Inercia",
+                q3: "300000 km/s",
+                q4: "Corriente eléctrica",
+                q5: "Energía de movimiento"
+            };
+
+            let score = 0;
+            const form = document.getElementById("quizForm");
+            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+                const userAnswer = form[question].value;
+                if (userAnswer === correctAnswer) {
+                    score++;
+                }
+            }
+
+            // Hide the quiz and show the result
+            document.getElementById("quizContainer").style.display = "none";
+            const resultDiv = document.getElementById("result");
+            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
