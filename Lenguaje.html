@@ -140,12 +140,20 @@
             // Hide the quiz and show the result
             document.getElementById("quizContainer").style.display = "none";
             const resultDiv = document.getElementById("result");
-            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${Object.keys(correctAnswers).length}`;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            document.getElementById("score").textContent = `Tu puntuación es: ${score} / ${totalQuestions}`;
 
             // Display correct answers
             let answersHtml = "<h2>Respuestas Correctas:</h2><ul>";
             for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-                answersHtml += `<li>${question}: ${correctAnswer}</li>`;
+                const questionNumber = question.replace('q', 'Pregunta ');
+                const userAnswer = form[question].value;
+                const isCorrect = userAnswer === correctAnswer;
+                const result = isCorrect ? "Pregunta acertada" : "Pregunta fallida";
+                const resultColor = isCorrect ? "green" : "red";
+                answersHtml += `<li>${questionNumber}.</li>`;
+                answersHtml += `<p>Respuesta: ${correctAnswer}</p>`;
+                answersHtml += `<p style="color: ${resultColor};">${result}</p>`;
             }
             answersHtml += "</ul>";
             document.getElementById("answers").innerHTML = answersHtml;
