@@ -20,6 +20,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
         h1 {
             margin-bottom: 20px;
@@ -44,10 +45,10 @@
             <fieldset>
                 <legend>1. ¿Cuál es la unidad de fuerza en el Sistema Internacional?</legend>
                 <label>
-                    <input type="radio" name="q1" value="Newton"> Newton
+                    <input type="radio" name="q1" value="Joule"> Joule
                 </label><br>
                 <label>
-                    <input type="radio" name="q1" value="Joule"> Joule
+                    <input type="radio" name="q1" value="Newton"> Newton
                 </label><br>
                 <label>
                     <input type="radio" name="q1" value="Watt"> Watt
@@ -58,10 +59,10 @@
             <fieldset>
                 <legend>2. ¿Qué describe la primera ley de Newton?</legend>
                 <label>
-                    <input type="radio" name="q2" value="Inercia"> Inercia
+                    <input type="radio" name="q2" value="Acción y reacción"> Acción y reacción
                 </label><br>
                 <label>
-                    <input type="radio" name="q2" value="Acción y reacción"> Acción y reacción
+                    <input type="radio" name="q2" value="Inercia"> Inercia
                 </label><br>
                 <label>
                     <input type="radio" name="q2" value="Fuerza y aceleración"> Fuerza y aceleración
@@ -72,13 +73,13 @@
             <fieldset>
                 <legend>3. ¿Cuál es la velocidad de la luz en el vacío?</legend>
                 <label>
-                    <input type="radio" name="q3" value="300000 km/s"> 300,000 km/s
+                    <input type="radio" name="q3" value="100000 km/s"> 100,000 km/s 
                 </label><br>
                 <label>
                     <input type="radio" name="q3" value="150000 km/s"> 150,000 km/s
                 </label><br>
                 <label>
-                    <input type="radio" name="q3" value="100000 km/s"> 100,000 km/s
+                    <input type="radio" name="q3" value="300000 km/s"> 300,000 km/s
                 </label>
             </fieldset>
 
@@ -86,13 +87,13 @@
             <fieldset>
                 <legend>4. ¿Qué mide un amperímetro?</legend>
                 <label>
-                    <input type="radio" name="q4" value="Corriente eléctrica"> Corriente eléctrica
+                    <input type="radio" name="q4" value="Resistencia"> Resistencia 
                 </label><br>
                 <label>
                     <input type="radio" name="q4" value="Voltaje"> Voltaje
                 </label><br>
                 <label>
-                    <input type="radio" name="q4" value="Resistencia"> Resistencia
+                    <input type="radio" name="q4" value="Corriente eléctrica"> Corriente eléctrica
                 </label>
             </fieldset>
 
@@ -114,8 +115,9 @@
         </form>
     </div>
     <div id="result" style="display: none; text-align: center;">
-        <p id="score"></p>
+        
         <div id="answers"></div>
+        <p id="score"></p>
         <button onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
     <script>

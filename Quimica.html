@@ -20,6 +20,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
         h1 {
             margin-bottom: 20px;
@@ -58,13 +59,13 @@
             <fieldset>
                 <legend>2. ¿Qué gas es esencial para la respiración humana?</legend>
                 <label>
-                    <input type="radio" name="q2" value="O2"> O2
+                    <input type="radio" name="q2" value="N2"> N2
                 </label><br>
                 <label>
                     <input type="radio" name="q2" value="CO2"> CO2
                 </label><br>
                 <label>
-                    <input type="radio" name="q2" value="N2"> N2
+                    <input type="radio" name="q2" value="O2"> O2
                 </label>
             </fieldset>
 
@@ -72,13 +73,13 @@
             <fieldset>
                 <legend>3. ¿Cuál es el pH de una solución neutra?</legend>
                 <label>
-                    <input type="radio" name="q3" value="7"> 7
+                    <input type="radio" name="q3" value="14"> 14
                 </label><br>
                 <label>
                     <input type="radio" name="q3" value="0"> 0
                 </label><br>
                 <label>
-                    <input type="radio" name="q3" value="14"> 14
+                    <input type="radio" name="q3" value="7"> 7
                 </label>
             </fieldset>
 
@@ -86,10 +87,10 @@
             <fieldset>
                 <legend>4. ¿Qué partícula subatómica tiene carga negativa?</legend>
                 <label>
-                    <input type="radio" name="q4" value="Electrón"> Electrón
+                    <input type="radio" name="q4" value="Protón"> Protón
                 </label><br>
                 <label>
-                    <input type="radio" name="q4" value="Protón"> Protón
+                    <input type="radio" name="q4" value="Electrón"> Electrón
                 </label><br>
                 <label>
                     <input type="radio" name="q4" value="Neutrón"> Neutrón
@@ -114,8 +115,8 @@
         </form>
     </div>
     <div id="result" style="display: none; text-align: center;">
-        <p id="score"></p>
         <div id="answers"></div>
+        <p id="score"></p>
         <button onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
     <script>

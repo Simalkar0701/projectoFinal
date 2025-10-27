@@ -20,6 +20,7 @@
             padding: 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
         }
         h1 {
             margin-bottom: 20px;
@@ -44,10 +45,10 @@
             <fieldset>
                 <legend>1. ¿Cuál es un sinónimo de "feliz"?</legend>
                 <label>
-                    <input type="radio" name="q1" value="triste"> Triste
+                    <input type="radio" name="q1" value="contento"> Contento
                 </label><br>
                 <label>
-                    <input type="radio" name="q1" value="contento"> Contento
+                    <input type="radio" name="q1" value="Triste"> Triste
                 </label><br>
                 <label>
                     <input type="radio" name="q1" value="enojado"> Enojado
@@ -58,13 +59,13 @@
             <fieldset>
                 <legend>2. ¿Cuál es el antónimo de "grande"?</legend>
                 <label>
-                    <input type="radio" name="q2" value="pequeño"> Pequeño
+                    <input type="radio" name="q2" value="ancho"> Ancho
                 </label><br>
                 <label>
                     <input type="radio" name="q2" value="alto"> Alto
                 </label><br>
                 <label>
-                    <input type="radio" name="q2" value="ancho"> Ancho
+                    <input type="radio" name="q2" value="pequeño"> Pequeño
                 </label>
             </fieldset>
 
@@ -72,10 +73,10 @@
             <fieldset>
                 <legend>3. ¿Cuál de las siguientes es una palabra aguda?</legend>
                 <label>
-                    <input type="radio" name="q3" value="canción"> Canción
+                    <input type="radio" name="q3" value="mesa"> Mesa
                 </label><br>
                 <label>
-                    <input type="radio" name="q3" value="mesa"> Mesa
+                    <input type="radio" name="q3" value="canción"> Canción
                 </label><br>
                 <label>
                     <input type="radio" name="q3" value="árbol"> Árbol
@@ -100,10 +101,10 @@
             <fieldset>
                 <legend>5. ¿Cuál es el sujeto en la oración "El perro corre rápido"?</legend>
                 <label>
-                    <input type="radio" name="q5" value="El perro"> El perro
+                    <input type="radio" name="q5" value="Corre"> Corre
                 </label><br>
                 <label>
-                    <input type="radio" name="q5" value="corre"> Corre
+                    <input type="radio" name="q5" value="El perro"> El perro
                 </label><br>
                 <label>
                     <input type="radio" name="q5" value="rápido"> Rápido
@@ -114,8 +115,8 @@
         </form>
     </div>
     <div id="result" style="display: none; text-align: center;">
-        <p id="score"></p>
         <div id="answers"></div>
+        <p id="score"></p>
         <button onclick="window.location.href='index.html'">Volver al Inicio</button>
     </div>
     <script>
